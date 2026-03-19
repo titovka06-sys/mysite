@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Ке пасил</title>
+
+  <style>
+    body {
+      margin: 0;
+      background: #0a0a0a;
+      color: #e5e5e5;
+      font-family: Arial, sans-serif;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 40px;
+    }
+
+    /* Главный заголовок */
+    .title {
+      text-align: center;
+      margin-top: 100px;
+      font-size: 48px;
+      letter-spacing: 2px;
+    }
+
+    /* Блоки товаров */
+    .products {
+      margin-top: 120px;
+      display: flex;
+      justify-content: space-between;
+      gap: 40px;
+    }
+
+    .card {
+      width: 48%;
+      cursor: pointer;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .card img {
+      width: 100%;
+      height: auto;
+      filter: grayscale(100%);
+    }
+
+    .card-title {
+      margin-top: 15px;
+      font-size: 16px;
+    }
+
+    .card:hover img {
+      opacity: 0.8;
+    }
+
+    /* Страницы */
+    .page {
+      display: none;
+      margin-top: 80px;
+    }
+
+    .page.active {
+      display: block;
+    }
+
+    .back {
+      margin-top: 30px;
+      display: inline-block;
+      padding: 8px 16px;
+      border: 1px solid #888;
+      cursor: pointer;
+    }
+
+    .back:hover {
+      border-color: #fff;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <!-- ГЛАВНАЯ -->
+  <div id="home" class="page active">
+
+    <div class="title">Ке пасил</div>
+
+    <div class="products">
+
+      <!-- ЛЕВЫЙ БЛОК -->
+      <div class="card" onclick="openPage('tshirt')">
+        <img src=IMG_6060.png alt="">
+        <div class="card-title">T-shirt mat — это проклятие</div>
+      </div>
+
+      <!-- ПРАВЫЙ БЛОК -->
+      <div class="card" onclick="openPage('hoodie')">
+        <img src=IMG_6061.png alt="">
+        <div class="card-title">hoodie fuck you, I drive Mercedes-Benz</div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- T-SHIRT -->
+  <div id="tshirt" class="page">
+    <h2>T-shirt mat — это проклятие</h2>
+    <p>Описание товара здесь.</p>
+    <div class="back" onclick="openPage('home')">← Назад</div>
+  </div>
+
+  <!-- HOODIE -->
+  <div id="hoodie" class="page">
+    <h2>hoodie fuck you, I drive Mercedes-Benz</h2>
+    <p>Описание товара здесь.</p>
+    <div class="back" onclick="openPage('home')">← Назад</div>
+  </div>
+
+</div>
+
+<script>
+  function openPage(pageId) {
+    const pages = document.querySelectorAll('.page');
+    pages.forEach(p => p.classList.remove('active'));
+
+    document.getElementById(pageId).classList.add('active');
+  }
+</script>
+
+</body>
+</html>
